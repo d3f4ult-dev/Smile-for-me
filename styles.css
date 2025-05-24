@@ -1,0 +1,219 @@
+/* Font families */
+:root {
+    --font-script: 'Dancing Script', cursive;
+    --font-sans: 'Poppins', sans-serif;
+    --font-romantic: 'Great Vibes', cursive;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+body {
+    font-family: var(--font-sans);
+}
+
+h1, h2, h3, .script-font {
+    font-family: var(--font-script);
+}
+
+.romantic-text {
+    font-family: var(--font-romantic);
+    font-size: 2.5rem;
+    line-height: 1.6;
+    color: #ff1493;
+    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.1);
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Message container styles */
+.message-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 192, 203, 0.3));
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.message-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="%23ff69b4" fill-opacity="0.1"/></svg>') repeat;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.message-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* Enhanced typing effect */
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid #ff69b4;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff69b4 }
+}
+
+/* Floating hearts animation */
+.heart {
+    position: absolute;
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    z-index: 2;
+}
+
+/* iOS Emoji Support */
+.emoji {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Custom styles */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+.sparkle {
+    position: absolute;
+    pointer-events: none;
+    animation: sparkle 1.5s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff69b4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1493;
+}
+
+/* Memory timeline styles */
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+    font-family: var(--font-sans);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff69b4;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff69b4;
+}
+
+/* Mood picker styles */
+.mood-button {
+    transition: transform 0.2s ease-in-out;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.mood-button:hover {
+    transform: scale(1.1);
+}
+
+/* Secret message vault styles */
+.vault-calendar {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .timeline-item {
+        padding-left: 20px;
+    }
+    
+    .vault-calendar {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    .romantic-text {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+} 
