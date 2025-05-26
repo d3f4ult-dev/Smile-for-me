@@ -135,6 +135,10 @@ h1, h2, h3, .script-font {
     padding-left: 30px;
     margin-bottom: 30px;
     font-family: var(--font-sans);
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timeline-item::before {
@@ -215,5 +219,251 @@ h1, h2, h3, .script-font {
     .romantic-text {
         font-size: 1.8rem;
         padding: 1rem;
+    }
+}
+
+/* Dark mode styles */
+.dark {
+    color-scheme: dark;
+}
+
+.dark .message-container {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(75, 85, 99, 0.3));
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+.dark .romantic-text {
+    color: #f472b6;
+    text-shadow: 2px 2px 4px rgba(244, 114, 182, 0.2);
+}
+
+.dark .timeline-item::before {
+    background: #f472b6;
+}
+
+.dark .timeline-item::after {
+    background: #f472b6;
+}
+
+.dark .vault-calendar {
+    background: rgba(31, 41, 55, 0.9);
+}
+
+/* Loading overlay styles */
+#loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#loading-overlay .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #ff69b4;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.dark #loading-overlay {
+    background: rgba(17, 24, 39, 0.9);
+}
+
+.dark #loading-overlay .spinner {
+    border-color: #f472b6;
+    border-top-color: transparent;
+}
+
+#loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Fix loading state styles */
+.loading {
+    position: relative;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 3px solid #ff69b4;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 2;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.dark .loading::after {
+    background: rgba(17, 24, 39, 0.7);
+}
+
+/* Fix skeleton loading animation */
+.skeleton {
+    display: none;
+}
+
+/* Back to top button animation */
+#back-to-top {
+    transition: all 0.3s ease-in-out;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:not(.visible) {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Name modal styles */
+#name-modal {
+    backdrop-filter: blur(4px);
+}
+
+#name-input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+}
+
+/* Countdown timer styles */
+#countdown .grid {
+    perspective: 1000px;
+}
+
+#countdown .grid > div {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+#countdown .grid > div:hover {
+    transform: translateY(-5px) rotateX(5deg);
+}
+
+/* Export button styles */
+#export-notes {
+    transition: all 0.3s ease;
+}
+
+#export-notes:hover {
+    transform: translateY(-2px);
+}
+
+/* Success message animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fixed.top-4.right-4 {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Dark mode adjustments for new elements */
+.dark #name-modal {
+    background: rgba(17, 24, 39, 0.9);
+}
+
+.dark #name-input {
+    background: rgba(31, 41, 55, 0.9);
+    border-color: #f472b6;
+}
+
+.dark #name-input:focus {
+    border-color: #f472b6;
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #countdown .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    #music-toggle,
+    #export-notes {
+        bottom: 1rem;
+    }
+    
+    #music-toggle {
+        left: 1rem;
+    }
+    
+    #export-notes {
+        right: 1rem;
+    }
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 } 

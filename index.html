@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smile For Me</title>
+    <title>Smile For Me - A Special Place for Our Love</title>
+    <meta name="description" content="A beautiful space filled with love notes, memories, and special moments just for you.">
+    <meta name="keywords" content="love, relationship, memories, love notes, special moments">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="Smile For Me - A Special Place for Our Love">
+    <meta property="og:description" content="A beautiful space filled with love notes, memories, and special moments just for you.">
+    <meta property="og:image" content="https://your-domain.com/path-to-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/">
+    <meta property="twitter:title" content="Smile For Me - A Special Place for Our Love">
+    <meta property="twitter:description" content="A beautiful space filled with love notes, memories, and special moments just for you.">
+    <meta property="twitter:image" content="https://your-domain.com/path-to-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,26 +35,42 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="theme-color" content="#ff69b4">
 </head>
-<body class="bg-gradient-to-br from-pink-100 to-purple-100 min-h-screen">
+<body class="bg-gradient-to-br from-pink-100 to-purple-100 min-h-screen dark:from-gray-900 dark:to-gray-800">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-sm shadow-md z-50">
+    <nav class="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-sm shadow-md z-50 dark:bg-gray-800 dark:bg-opacity-80">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-pink-600">Smile For Me</a>
-                <div class="space-x-4">
-                    <a href="#daily-note" class="text-gray-600 hover:text-pink-600 transition">Daily Note</a>
-                    <a href="#memories" class="text-gray-600 hover:text-pink-600 transition">Memories</a>
-                    <a href="#mood" class="text-gray-600 hover:text-pink-600 transition">Mood</a>
-                    <a href="#vault" class="text-gray-600 hover:text-pink-600 transition">Secret Vault</a>
+                <a href="#" class="text-2xl font-bold text-pink-600 dark:text-pink-400">Smile For Me</a>
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
+                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="moon-icon hidden dark:block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            <path class="sun-icon block dark:hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    <a href="#daily-note" class="text-gray-600 hover:text-pink-600 transition dark:text-gray-300 dark:hover:text-pink-400">Daily Note</a>
+                    <a href="#memories" class="text-gray-600 hover:text-pink-600 transition dark:text-gray-300 dark:hover:text-pink-400">Memories</a>
+                    <a href="#mood" class="text-gray-600 hover:text-pink-600 transition dark:text-gray-300 dark:hover:text-pink-400">Mood</a>
+                    <a href="#vault" class="text-gray-600 hover:text-pink-600 transition dark:text-gray-300 dark:hover:text-pink-400">Secret Vault</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Name Input Modal -->
+    <div id="name-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold text-pink-600 dark:text-pink-400 mb-4">Welcome to Our Special Place</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">What should I call you?</p>
+            <input type="text" id="name-input" class="w-full p-2 border-2 border-pink-300 rounded-lg mb-4 dark:bg-gray-700 dark:border-pink-500 dark:text-white" placeholder="Enter your name">
+            <button id="save-name" class="btn-primary w-full">Start Our Journey</button>
+        </div>
+    </div>
+
+    <!-- Personalized Greeting -->
     <section class="pt-24 pb-12 text-center">
-        <h1 class="text-5xl font-bold text-pink-600 mb-4">Smile For Me</h1>
-        <p class="text-xl text-gray-600">Made with love, just for you.</p>
+        <h1 class="text-5xl font-bold text-pink-600 dark:text-pink-400 mb-4">Smile For Me</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300" id="personalized-greeting">Made with love, just for you.</p>
     </section>
 
     <!-- Daily Love Note -->
@@ -77,11 +117,17 @@
     <section id="mood" class="py-12">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold text-pink-600 mb-8">How are you feeling today?</h2>
-            <div class="flex justify-center space-x-4 mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8 max-w-4xl mx-auto">
                 <button class="mood-button text-4xl" data-mood="happy">😊</button>
                 <button class="mood-button text-4xl" data-mood="sad">😢</button>
                 <button class="mood-button text-4xl" data-mood="stressed">😰</button>
                 <button class="mood-button text-4xl" data-mood="angry">😠</button>
+                <button class="mood-button text-4xl" data-mood="excited">🤩</button>
+                <button class="mood-button text-4xl" data-mood="tired">😴</button>
+                <button class="mood-button text-4xl" data-mood="anxious">😰</button>
+                <button class="mood-button text-4xl" data-mood="proud">😎</button>
+                <button class="mood-button text-4xl" data-mood="nostalgic">🥹</button>
+                <button class="mood-button text-4xl" data-mood="hopeful">✨</button>
             </div>
             <div id="mood-response" class="text-xl text-gray-700"></div>
         </div>
@@ -106,6 +152,53 @@
             </div>
         </div>
     </section>
+
+    <!-- Countdown Timer -->
+    <section id="countdown" class="py-12 bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-8">Counting Down to Our Special Day</h2>
+            <div class="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                    <div id="days" class="text-4xl font-bold text-pink-600 dark:text-pink-400">00</div>
+                    <div class="text-gray-600 dark:text-gray-300">Days</div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                    <div id="hours" class="text-4xl font-bold text-pink-600 dark:text-pink-400">00</div>
+                    <div class="text-gray-600 dark:text-gray-300">Hours</div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                    <div id="minutes" class="text-4xl font-bold text-pink-600 dark:text-pink-400">00</div>
+                    <div class="text-gray-600 dark:text-gray-300">Minutes</div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                    <div id="seconds" class="text-4xl font-bold text-pink-600 dark:text-pink-400">00</div>
+                    <div class="text-gray-600 dark:text-gray-300">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Notes Button -->
+    <button id="export-notes" class="fixed bottom-8 right-24 p-3 bg-pink-500 text-white rounded-full shadow-lg hover:bg-pink-600 transition-all dark:bg-pink-600 dark:hover:bg-pink-700" aria-label="Export notes">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-pink-500 text-white rounded-full shadow-lg hover:bg-pink-600 transition-all dark:bg-pink-600 dark:hover:bg-pink-700 opacity-0 invisible" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center transition-opacity duration-300">
+        <div class="text-center">
+            <div class="spinner"></div>
+            <p class="mt-4 text-gray-600 dark:text-gray-300">Loading our special moments...</p>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
